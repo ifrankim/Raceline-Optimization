@@ -1,8 +1,3 @@
-"""
-A modification of `main_globaltraj.py` to so that the csv generated can directly be used
-by the pure_pursuit node: https://github.com/CL2-UWaterloo/f1tenth_ws/tree/main/src/pure_pursuit
-
-"""
 import opt_mintime_traj
 import numpy as np
 import time
@@ -29,7 +24,7 @@ F1TENTH ROS code.
 
 # Create the parser and add arguments with defaults and explicit names
 parser = argparse.ArgumentParser(description='Generate optimal trajectory for F1TENTH racing.')
-parser.add_argument('--map_name', type=str, default='e7_floor5_square', help='Name of the map (default: e7_floor5_square)')
+parser.add_argument('--map_name', type=str, default='ril_map', help='Name of the map (default: ril_map)')
 parser.add_argument('--map_path', type=str, default='', help='Path to the map centerline (should be a .csv), defaults to inputs/tracks/<map_name>.csv')
 parser.add_argument('--export_path', type=str, default='', help='Path to copy from the filepath in the /outputs')
 
@@ -39,9 +34,6 @@ args = parser.parse_args()
 MAP_NAME = args.map_name
 MAP_PATH = args.map_path
 EXPORT_PATH = args.export_path
-
-# MAP_NAME = "hubble_small"
-# MAP_NAME = "Hockenheim_map"
 
 # ----------------------------------------------------------------------------------------------------------------------
 # USER INPUT -----------------------------------------------------------------------------------------------------------
@@ -54,10 +46,10 @@ file_paths = {"veh_params_file": "f110.ini"}
 debug = True                                    # print console messages
 plot_opts = {"mincurv_curv_lin": False,         # plot curv. linearization (original and solution based) (mincurv only)
              "raceline": True,                  # plot optimized path
-             "imported_bounds": True,          # plot imported bounds (analyze difference to interpolated bounds)
-             "raceline_curv": False,             # plot curvature profile of optimized path
+             "imported_bounds": True,           # plot imported bounds (analyze difference to interpolated bounds)
+             "raceline_curv": False,            # plot curvature profile of optimized path
              "racetraj_vel": True,              # plot velocity profile
-             "racetraj_vel_3d": True,          # plot 3D velocity profile above raceline
+             "racetraj_vel_3d": True,           # plot 3D velocity profile above raceline
              "racetraj_vel_3d_stepsize": 0.5,   # [m] vertical lines stepsize in 3D velocity profile plot
              "spline_normals": False,           # plot spline normals to check for crossings
              "mintime_plots": False}            # plot states, controls, friction coeffs etc. (mintime only)
