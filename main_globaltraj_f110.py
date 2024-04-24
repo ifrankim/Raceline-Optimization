@@ -24,7 +24,7 @@ F1TENTH ROS code.
 
 # Create the parser and add arguments with defaults and explicit names
 parser = argparse.ArgumentParser(description='Generate optimal trajectory for F1TENTH racing.')
-parser.add_argument('--map_name', type=str, default='ril_map', help='Name of the map (default: ril_map)')
+parser.add_argument('--map_name', type=str, default='ril_map_v3', help='Name of the map (default: ril_map)')
 parser.add_argument('--map_path', type=str, default='', help='Path to the map centerline (should be a .csv), defaults to inputs/tracks/<map_name>.csv')
 parser.add_argument('--export_path', type=str, default='', help='Path to copy from the filepath in the /outputs')
 
@@ -91,8 +91,8 @@ mintime_opts = {"tpadata": None,
 lap_time_mat_opts = {"use_lap_time_mat": False,             # calculate a lap time matrix (diff. top speeds and scales)
                      "gg_scale_range": [0.3, 1.0],          # range of gg scales to be covered
                      "gg_scale_stepsize": 0.05,             # step size to be applied
-                     "top_speed_range": [100.0, 150.0],     # range of top speeds to be simulated [in km/h]
-                     "top_speed_stepsize": 5.0,             # step size to be applied
+                     "top_speed_range": [3.6, 5.4],     # range of top speeds to be simulated [in km/h]
+                     "top_speed_stepsize": 0.5,             # step size to be applied
                      "file": "lap_time_matrix.csv"}         # file name of the lap time matrix (stored in "outputs")
 
 # ----------------------------------------------------------------------------------------------------------------------
