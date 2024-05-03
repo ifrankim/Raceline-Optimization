@@ -1,0 +1,9 @@
+free_thresh: 0.196
+image: icra_2023_mod.png
+negate: 0
+occupied_thresh: 0.65
+origin:
+- -10.049340820312501
+- -4.060702514648438
+- 0
+resolution: 0.05000000074505806
