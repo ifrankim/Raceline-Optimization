@@ -18,13 +18,13 @@ Steven Gong
 
 Documentation:
 This script has to be executed to generate an optimal trajectory based on a given reference track. Adapted for
-F1TENTH ROS code.
+F1TENTH ROS code.=
 """
 
 
 # Create the parser and add arguments with defaults and explicit names
 parser = argparse.ArgumentParser(description='Generate optimal trajectory for F1TENTH racing.')
-parser.add_argument('--map_name', type=str, default='ril_map_v3', help='Name of the map (default: ril_map)')
+parser.add_argument('--map_name', type=str, default='iphone_map', help='Name of the map (default: ril_map)')
 parser.add_argument('--map_path', type=str, default='', help='Path to the map centerline (should be a .csv), defaults to inputs/tracks/<map_name>.csv')
 parser.add_argument('--export_path', type=str, default='', help='Path to copy from the filepath in the /outputs')
 
@@ -32,7 +32,6 @@ args = parser.parse_args()
 
 # Use the arguments
 MAP_NAME = args.map_name
-MAP_PATH = args.map_path
 EXPORT_PATH = args.export_path
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -58,7 +57,7 @@ plot_opts = {"mincurv_curv_lin": False,         # plot curv. linearization (orig
 file_paths["track_name"] = MAP_NAME
 
 # set import options ---------------------------------------------------------------------------------------------------
-imp_opts = {"flip_imp_track": False,                # flip imported track to reverse direction
+imp_opts = {"flip_imp_track": True,                # flip imported track to reverse direction
             "set_new_start": False,                 # set new starting point (changes order, not coordinates)
             "new_start": np.array([0.0, -47.0]),    # [x_m, y_m]
             "min_track_width": None,                # [m] minimum enforced track width (set None to deactivate)
