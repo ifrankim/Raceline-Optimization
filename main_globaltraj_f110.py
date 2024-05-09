@@ -18,13 +18,13 @@ Steven Gong
 
 Documentation:
 This script has to be executed to generate an optimal trajectory based on a given reference track. Adapted for
-F1TENTH ROS code.=
+F1TENTH ROS code.
 """
 
 
 # Create the parser and add arguments with defaults and explicit names
 parser = argparse.ArgumentParser(description='Generate optimal trajectory for F1TENTH racing.')
-parser.add_argument('--map_name', type=str, default='iphone_map', help='Name of the map (default: ril_map)')
+parser.add_argument('--map_name', type=str, default='Inflated2', help='Name of the map (default: ril_map)')
 parser.add_argument('--map_path', type=str, default='', help='Path to the map centerline (should be a .csv), defaults to inputs/tracks/<map_name>.csv')
 parser.add_argument('--export_path', type=str, default='', help='Path to copy from the filepath in the /outputs')
 
@@ -32,6 +32,7 @@ args = parser.parse_args()
 
 # Use the arguments
 MAP_NAME = args.map_name
+MAP_PATH = args.map_path
 EXPORT_PATH = args.export_path
 
 # ----------------------------------------------------------------------------------------------------------------------
